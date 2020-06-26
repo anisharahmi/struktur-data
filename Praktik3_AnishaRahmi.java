@@ -3,83 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package queue;
-
+package demostackpopstring;
+import java.util.*;
 /**
  *
  * @author Anisha Rahmi
  */
-public class Queue {
-
+   /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        // Creating an empty Stack
+Stack<String> STACK = new Stack<String>();
+STACK.push("Minggu");
+STACK.push("Senin");
+STACK.push("Selasa");
+STACK.push("Rabu");
+STACK.push("Kamis");
+// Displaying the Stack
+System.out.println("Stack Awal: " + STACK);
+// Removing elements using pop() method
+System.out.println("Pop Element: " +
+STACK.pop());
+System.out.println("Pop Element: " +
+STACK.pop());
+// Displaying the Stack after pop operation
+System.out.println("Update Stack "
++ STACK);
+}
+}
     
-   // Variabel Internal
-private int head = 0;
-private int tail = 0;
-private int[] isi = new int[4];
-// Kontruktor
-public Queue() {}
-public int GetIsiByIndex(int index)
-{
-return isi[index];
-}
-// Enqueue
-public void Enqueue(int x)
-{
-if(tail < 4) {
-isi[tail] = x;
-tail++;
-} else {
-System.out.println("Penuh");
-}
-}
-// Dequeue
-public int Dequeue()
-{
-if(tail != head) {
-int temp = isi[head];
-for(int a = head; a < tail; a++) {
-if(a == tail-1) {
-isi[a] = 0;
-} else {
-isi[a] = isi[a+1];
-}
-}
-tail--;
-return temp;
-} else {
-System.out.println("Kosong");
-return 0;
-}
-}
-// Print
-public void Print()
-{
-String teks = "";
-for(int a=0; a<4; a++) {
-teks += isi[a]+",";
-}
-System.out.println(teks);
-}
-public static void main(String[] args) {
-// Buat queue
-Queue q1 = new Queue();
-// Enqueue
-q1.Enqueue(31);
-q1.Enqueue(32);
-q1.Enqueue(33);
-q1.Enqueue(34);
-q1.Enqueue(35);
-q1.Enqueue(36);
-q1.Print();
-System.out.println(q1.Dequeue());
-q1.Print();
-System.out.println(q1.Dequeue());
-q1.Print();
-System.out.println(q1.Dequeue());
-q1.Print();
-System.out.println(q1.Dequeue());
-q1.Print();
-System.out.println(q1.Dequeue());
-q1.Print();
-}
-}
